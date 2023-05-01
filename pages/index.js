@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import Layout from './components/Layout';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -9,4 +9,4 @@ export default function Home() {
       <div>Main content!</div>
     </Layout>
   )
-}
+};
