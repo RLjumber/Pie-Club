@@ -1,3 +1,13 @@
 .main {
     background-color: cadetblue;
+    /* display: flex;
+    flex-direction: column; */
+    text-align: center;
+}
+
+.columns {
+    border: solid red 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
