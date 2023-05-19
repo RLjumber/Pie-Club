@@ -1,18 +1,18 @@
-import Link from "next/link";
-import styles from "../../styles/Header.module.css";
-import { useRouter } from "next/router";
+"use client";
+
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function Header() {
 
-    const router = useRouter();
-
-    // console.log(router.pathname)
+    const current = useRouter();
+    console.log("current route = ", current.pathname)
 
     return (
         <div className={styles.header}>
             <ul>
-                {router.pathname === "/" ? <Link href={"/about"}>To About</Link> : null}
-                {router.pathname === "/about" ? <Link href={"/"}>To Home</Link> : null}
+                {current.pathname === "/" ? <Link href={"/about"}>To About</Link> : null}
+                {current.pathname === "/about" ? <Link href={"/"}>To Home</Link> : null}
             </ul>
         </div>
     )
