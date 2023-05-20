@@ -6,7 +6,30 @@ const prisma = new PrismaClient()
 
 // find all Users [#]
 // find User by id [#]
-// find User by name []
+// find User by name [#]
+// create user
+
+
+export async function createUser() {
+
+    const name = "Johnson"
+
+    try {
+        console.log("ive been hit")
+        const user = await prisma.user.create({
+            data: {
+                name: name,
+                email: "yadaya@gmail.com"
+            }
+        })
+        console.log(user)
+        return user;
+    } catch (error) {
+        return error
+    }
+}
+
+createUser();
 
 export async function getAllUsers() {
     try {

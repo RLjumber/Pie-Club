@@ -13,6 +13,9 @@ export default async function handler(req, res) {
             res.status(500).json({error: error.message})
         }
     } else {
-    res.status(425).end(`Method ${req.method} is not allowed!`)
+        res.setHeader("Allow", "GET");
+        res.status(425).end(`Method ${req.method} is not allowed!`)
     }
 }
+
+// this is still case sensitive, need to lower case the name before running maybe
