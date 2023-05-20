@@ -25,25 +25,27 @@ model Post {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String   @db.Uuid
+  recipes   Recipe[] @relation("_PostToRecipe")
 }
 
 model Recipe {
-  id          Int        @id @default(autoincrement())
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   title       String
   content     String
   ingredients String[]
   steps       String[]
-  author      User       @relation(fields: [authorId], references: [id])
-  authorId    String     @db.Uuid
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String   @db.Uuid
+  posts       Post[]   @relation("_PostToRecipe")
 }
 
 model Profile {
   id     Int     @id @default(autoincrement())
   bio    String?
   user   User    @relation(fields: [userId], references: [id])
-  userId  String  @unique @db.Uuid
+  userId String  @unique @db.Uuid
 }
 
 // must run 'prisma generate' after any changes to Prisma schema.
@@ -54,5 +56,3 @@ model Profile {
 //    - Add option to include recipe in a post, make it null so you dont have to
 
 //    - On frontend, when you go to user page, if user is you, (id matches id) then show edit page. On user page have bio and posts, then have page for recipes
-  
-

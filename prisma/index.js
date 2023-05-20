@@ -2,44 +2,33 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
-async function main(userId, recipeData) {
+async function main(userId, recipeId) {
   try {
-    const recipe = await prisma.recipe.create({
-      data: {
-        title: recipeData.title,
-        content: recipeData.content,
-        ingredients: recipeData.ingredients,
-        steps: recipeData.steps,
-        author: {
-          connect: { id: userId },
+    // Find the post with the specified recipe ID
+    const post = await prisma.post.findFirst({
+      where: {
+        recipes: {
+          some: {
+            id: recipeId,
+          },
         },
       },
     })
 
-    // console.log('Recipe created:', recipe)
-
-    return recipe
+    console.log('Post:', post)
   } catch (error) {
-    console.error('Error creating recipe:', error)
+    console.error('Error:', error)
     throw error
+  } finally {
+    await prisma.$disconnect()
   }
 }
 
-const userId = "2edcccf7-4aa2-48c4-8077-e300afd02d54"// Replace with the actual user ID
-const recipeData = {
-  title: 'Apple pie',
-  content: 'Its not your typical apple pie ;)',
-  ingredients: ['Apples?', 'Sugar', 'Other Pie stuff'],
-  steps: ['Put the apples on the floor', 'Slap your mother with the pie crust', 'Roll up into a ball and cry'],
-}
+const userId = "2edcccf7-4aa2-48c4-8077-e300afd02d54" // Replace with the actual user ID
+const recipeId = 3 // Replace with the ID of the recipe you want to find the associated post for
 
-main(userId, recipeData)
-  .then(async (recipe) => {
-    console.log('Recipe created:', recipe)
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
+main(userId, recipeId)
+  .catch((e) => {
     console.error(e)
-    await prisma.$disconnect()
     process.exit(1)
   })
