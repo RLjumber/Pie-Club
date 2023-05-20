@@ -1,4 +1,5 @@
-import styles from "../../styles/Main.module.css"
+import styles from "@styles/Main.module.css"
+import PublishedPosts from "./PublishedPosts"
 
 export default function Main() {
 
@@ -9,6 +10,7 @@ export default function Main() {
                 <h2>Whats going on</h2>
                 <h2>Ayo</h2>
             </div>
+            <PublishedPosts />
         </div>
     )
 };

@@ -51,8 +51,7 @@ model Profile {
 // must run 'prisma generate' after any changes to Prisma schema.
 
 // Ideas:
-//    - Recipes array in user table, this recipes array will reference the recipe table. Recipe table holds information like Post does. 
 
-//    - Add option to include recipe in a post, make it null so you dont have to
+// add image category to posts, and recipes, so that they both may contain a main image and then other images, || OR just be able to add multiple images and always set the first image[0] to the thumbnail or main picture. 
 
 //    - On frontend, when you go to user page, if user is you, (id matches id) then show edit page. On user page have bio and posts, then have page for recipes

@@ -1,3 +1,6 @@
 .footer {
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.361);;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

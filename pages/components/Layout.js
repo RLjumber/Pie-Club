@@ -7,7 +7,7 @@ export default function Layout({children}) {
     return (
         <div>
             <Head>
-                <title>My App</title>
+                <title>Pie Club🥧</title>
                 {/* <link rel="stylesheet" href="/static/css/style.css" /> */}
             </Head>
                 <Header />
