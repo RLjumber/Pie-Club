@@ -12,8 +12,14 @@ export default function Header() {
     return (
         <div className={styles.header}>
             <ul>
-                {current.pathname === "/" ? <Link href={"/about"}>To About</Link> : null}
+                {current.pathname === "/" ? 
+                <ul>
+                    <li><Link href={"/about"}>About</Link></li>
+                    <li><Link href={"/recipes"}>Recipes</Link></li>
+                </ul> 
+                : null}
                 {current.pathname === "/about" ? <Link href={"/"}>To Home</Link> : null}
+                
             </ul>
         </div>
     )

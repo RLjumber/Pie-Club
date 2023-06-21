@@ -22,7 +22,7 @@ export async function createUser() {
                 email: "yadaya@gmail.com"
             }
         })
-        console.log(user)
+        console.log("User created: ", user)
         return user;
     } catch (error) {
         return error
