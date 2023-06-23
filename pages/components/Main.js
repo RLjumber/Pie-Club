@@ -1,16 +1,20 @@
 import styles from "@styles/Main.module.css"
-import PublishedPosts from "./PublishedPosts"
+import Image from "next/image";
+import PieOfTheMonth from "./PieOfTheMonth";
+import RequestAPie from "./RequestAPie";
+
 
 export default function Main() {
 
     return (
         <div className={styles.main}>
-            <h1>Main Content</h1>
-            <div className={styles.columns}>
-                <h2>Whats going on</h2>
-                <h2>Ayo</h2>
+            <div className={styles.mainImage}>
+                <h1 className={styles.title}>Main Content</h1>
+                {/* possibly blur effect using placeholder="blur" later on */}
+                <Image src={"/tablecloth (Medium).jpeg"} alt="something clever"  className={styles.mainImage} fill/>
             </div>
-            <PublishedPosts />
+            <PieOfTheMonth />
+            <RequestAPie />        
         </div>
     )
 };

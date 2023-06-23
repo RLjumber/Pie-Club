@@ -1,6 +1,21 @@
 .header {
-    background-color: rgba(0, 0, 0, 0.361);
+    background-color: var(--clr-accent-light);
+    opacity: 0.4;
+    backdrop-filter: blur(5px);
     position: fixed;
     top: 0;
+    z-index: 1;
     width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    border: solid red 1px;
+    list-style: none;
+}
+
+.logo {
+    border: solid blue 1px;
 }

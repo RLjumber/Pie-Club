@@ -1,20 +1,15 @@
 .main {
-    background-color: rgb(72, 158, 255);
-    /* display: flex;
-    flex-direction: column; */
+    background-color: var(--clr-primary-light);
+    width: 100%;
     text-align: center;
-    border: solid rgb(116, 255, 36) 1px;
-    margin: 5rem;
-    height: 80vh;
+    height: 100%;
+    padding-bottom: 25vh;
 }
 
-.columns {
-    border: solid red 1px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.columns h2 {
-    border: solid red 1px;
+.mainImage {
+    object-fit: cover;
+    position: relative;
+    
+    height: 100vh;
+    width: 100vw;
 }

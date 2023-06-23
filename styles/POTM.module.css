@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid black 1px;
+    padding: 2rem; 
+    /* no margin yet container is 100% */
+}
+
+.image_container {
+    background-color: var(--clr--primary-heavy);
+    border: solid red 1px;
+    /* height: 35vh; */
+    padding: 2rem;
+}
+
+
+.text_container {
+    border: solid blue 1px;
+}

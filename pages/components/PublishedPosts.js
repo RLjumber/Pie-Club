@@ -6,11 +6,11 @@ import styles from '@styles/PublishedPosts.module.css';
 
 
 export default function PublishedPosts() {
-    const API_URL = "http://localhost:3000/api/posts/all_published_posts";
     const [posts, setPosts] = useState([])
 
 
     useEffect(() => {
+        console.log("window location: ", window.location)
         fetchPublishedPosts().then((data) => {
             setPosts(data.posts);
             console.log(posts);
@@ -19,6 +19,10 @@ export default function PublishedPosts() {
 
     const fetchPublishedPosts = async () => {
         try {
+            // window is only accessible client side so must be called here on the client side, during the useEffect call
+            const origin = window.location.origin
+            const API_URL = `${origin}/api/posts/all_published_posts`;
+
             const response = await fetch(API_URL);
             const data = await response.json();
             return data;
